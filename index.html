@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorio de medidas · 2º ESO</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f7;--card:#fff;--ink:#1c2733;--mut:#5a6878;--pri:#2c6fb7;--acc:#e8833a;--line:#cdd6e0;--ok:#1f8a70;--bad:#c44536;--sea:#8ecfe0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121b26;--card:#1b2735;--ink:#eaf0f7;--mut:#9fb0c3;--pri:#6aa8ee;--acc:#f0a064;--line:#34465a;--ok:#4cc9a6;--bad:#ef7b6c;--sea:#4a95ab}}
+:root[data-theme="dark"]{--bg:#121b26;--card:#1b2735;--ink:#eaf0f7;--mut:#9fb0c3;--pri:#6aa8ee;--acc:#f0a064;--line:#34465a;--ok:#4cc9a6;--bad:#ef7b6c;--sea:#4a95ab}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Nunito,system-ui,sans-serif}
+h1,h2{font-family:Fredoka,Nunito,sans-serif;margin:0}
+header{text-align:center;padding:16px 12px 4px}
+header h1{font-size:clamp(1.4rem,5vw,2.1rem);color:var(--pri)}
+header p{margin:2px 0 0;color:var(--mut)}
+nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:8px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:700 15px Nunito,sans-serif;padding:9px 14px;border-radius:99px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+nav button.on{background:var(--pri);border-color:var(--pri);color:#fff}
+main{max-width:1000px;margin:0 auto;padding:6px 12px 36px;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.sec{display:none}.sec.on{display:grid}
+.card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.card h2{font-size:1.1rem;margin-bottom:6px;color:var(--pri)}
+.full{grid-column:1/-1}
+svg{width:100%;height:auto;display:block}
+.btn{font:700 15px Nunito,sans-serif;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:9px 12px;cursor:pointer;margin:3px 3px 3px 0}
+.btn.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.btn.act{background:var(--acc);border-color:var(--acc);color:#fff}
+input[type=text],textarea,select{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);margin:3px 0 8px}
+label{font-weight:700;display:block}
+.msg{margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(232,131,58,.15);font-weight:700;min-height:2.6em}
+.msg.bad{background:rgba(196,69,54,.15);color:var(--bad)}.msg.good{background:rgba(31,138,112,.16);color:var(--ok)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left}
+ol{margin:0;padding:0;list-style:none}li{padding:3px 0}
+li:before{content:"☐ ";color:var(--mut)}li.ok:before{content:"☑ ";color:var(--ok)}li.ok{color:var(--mut);text-decoration:line-through}
+.big{font:700 1.5rem Fredoka,sans-serif;color:var(--acc)}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;background:var(--acc);color:#fff;border-radius:8px;padding:1px 8px}
+.onlyprint{display:none}
+#prt{white-space:pre-wrap;font:14px/1.5 Georgia,serif;color:#000}
+@media print{header,nav,.sec{display:none!important}#informe{display:block!important}#informe>.card{display:none!important}#informe>.onlyprint{display:block!important}body{background:#fff}}
+</style>
+</head>
+<body>
+<header><h1>⚖️ Laboratorio de medidas</h1><p>2º ESO · Física y Química · Magnitudes fundamentales, instrumentos y cambio de unidades</p></header>
+<nav><button class="on" data-t="mag">1. Magnitudes</button><button data-t="taller">2. Taller de medida</button><button data-t="conv">3. Cambio de unidades</button><button data-t="informe">4. Mi informe</button></nav>
+
+<main id="mag" class="sec on">
+<div class="card full"><h2>Magnitudes fundamentales del Sistema Internacional (SI)</h2>
+<p>Una <b>magnitud</b> es algo que se puede medir. Las <b>fundamentales</b> no dependen de otras; con ellas se definen las <b>derivadas</b> (superficie, volumen, velocidad, densidad…).</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Magnitud</th><th>Unidad SI</th><th>Símbolo</th><th>Instrumento</th></tr></thead><tbody>
+<tr><td>Longitud</td><td>metro</td><td><b>m</b></td><td>regla, cinta métrica, calibre</td></tr>
+<tr><td>Masa</td><td>kilogramo</td><td><b>kg</b></td><td>balanza</td></tr>
+<tr><td>Tiempo</td><td>segundo</td><td><b>s</b></td><td>cronómetro</td></tr>
+<tr><td>Temperatura</td><td>kelvin</td><td><b>K</b></td><td>termómetro (en °C a diario)</td></tr>
+<tr><td>Intensidad de corriente</td><td>amperio</td><td><b>A</b></td><td>amperímetro</td></tr>
+<tr><td>Cantidad de sustancia</td><td>mol</td><td><b>mol</b></td><td>se calcula a partir de la masa</td></tr>
+<tr><td>Intensidad luminosa</td><td>candela</td><td><b>cd</b></td><td>fotómetro</td></tr></tbody></table></div></div>
+<div class="card"><span class="tag">Derivadas</span><h2>Ejemplos</h2><p>Superficie → m² · Volumen → m³ (la probeta lo mide en mL o L) · Velocidad → m/s · Densidad → kg/m³.</p></div>
+<div class="card"><span class="tag">Instrumentos</span><h2>Cómo elegir bien</h2><p>Antes de medir, mira dos cosas: <b>hasta cuánto mide</b> el instrumento y <b>cuánto vale cada rayita pequeña</b>. Elige el que sirva para lo que vas a medir.</p></div>
+<div class="card full"><button class="btn act" onclick="document.querySelector('[data-t=taller]').click()">Ir al taller de medida →</button></div>
+</main>
+
+<main id="taller" class="sec">
+<div class="card full"><h2>🔧 Taller de medida</h2>
+<p>Elige un instrumento, <b>lee la medida</b> y después <b>cámbiala de unidad</b>. Pulsa «Nueva medida» las veces que quieras.</p>
+<div id="isel"></div></div>
+<div class="card"><div id="iinfo" style="color:var(--mut);font-size:.92rem"></div><div id="isvg"></div></div>
+<div class="card"><label for="r1" id="l1"></label><input type="text" id="r1" inputmode="decimal" autocomplete="off">
+<label for="r2" id="l2"></label><input type="text" id="r2" inputmode="decimal" autocomplete="off">
+<button class="btn act" id="ck">✔ Comprobar</button><button class="btn" id="nw">🔄 Nueva medida</button><button class="btn" id="sl">💡 Pista</button>
+<div class="msg" id="imsg">Elige un instrumento.</div></div>
+<div class="card full"><h2>📊 Mis medidas</h2><table><thead><tr><th>Instrumento</th><th>Intentos</th><th>Aciertos</th></tr></thead><tbody id="stat"></tbody></table></div>
+</main>
+
+<main id="conv" class="sec">
+<div class="card"><h2>🔁 Conversor con explicación</h2>
+<label for="cm">Magnitud</label><select id="cm"><option value="len">Longitud</option><option value="mass">Masa</option><option value="time">Tiempo</option><option value="temp">Temperatura</option></select>
+<label for="cv">Valor</label><input type="text" id="cv" inputmode="decimal" value="1" autocomplete="off">
+<label for="cf">De</label><select id="cf"></select><label for="ct">A</label><select id="ct"></select>
+<button class="btn act" id="cb">Convertir</button>
+<div class="msg" id="cr">Pulsa «Convertir».</div></div>
+<div class="card"><h2>⚽ Pedidos del laboratorio</h2>
+<p id="pq" style="font-weight:700">Pulsa «Nuevo pedido».</p>
+<label for="pa" id="pl">Respuesta</label><input type="text" id="pa" inputmode="decimal" autocomplete="off">
+<button class="btn act" id="pc">✔ Comprobar</button><button class="btn" id="pn">🔄 Nuevo pedido</button><button class="btn" id="ph">💡 Pista</button>
+<div class="msg" id="pm"></div><p style="color:var(--mut);margin:6px 0 0">Conversiones correctas: <b id="pok">0</b> de <b id="pint">0</b> intentos</p></div>
+<div class="card full"><h2>🪜 Recuerda</h2><p><b>Unidad más pequeña → multiplicas.</b> <b>Unidad más grande → divides.</b> En longitud y masa cada escalón es ×10 (km, hm, dam, m, dm, cm, mm). En tiempo: 1 h = 60 min = 3.600 s. En temperatura: K = °C + 273,15.</p></div>
+</main>
+
+<main id="informe" class="sec">
+<div class="card full"><h2>📝 Mi informe</h2><p>Haz las tareas, completa las frases y genera el informe para entregárselo a tu profesora (cópialo en Classroom o impórtalo a PDF).</p></div>
+<div class="card"><h2>Mis datos</h2><label for="nom">Nombre y apellidos</label><input type="text" id="nom" autocomplete="off"><label for="cur">Curso y grupo</label><input type="text" id="cur" autocomplete="off"></div>
+<div class="card"><h2>Tareas obligatorias</h2><ol id="tasks"></ol><p style="color:var(--mut);font-size:.9rem">Se marcan solas.</p></div>
+<div class="card full"><h2>Mis conclusiones</h2>
+<label for="h1">Un error que cometí al cambiar de unidades fue… y lo corregí así…</label><textarea id="h1" rows="2"></textarea>
+<label for="h2">Para elegir el instrumento adecuado hay que fijarse en…</label><textarea id="h2" rows="2"></textarea></div>
+<div class="card full"><button class="btn act" id="bRep">📄 Generar informe</button><button class="btn" id="bCopy">📋 Copiar</button><button class="btn" id="bPrint">🖨️ Imprimir / PDF</button>
+<div class="msg" id="repmsg">Escribe tu nombre y pulsa «Generar informe».</div><textarea id="rep" rows="12" readonly style="margin-top:8px"></textarea></div>
+<div class="onlyprint" id="prt"></div>
+</main>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function num(s){return parseFloat(String(s).replace(',','.'))}
+function fmt(x){if(!isFinite(x))return '—';var a=Math.abs(x);if(a!==0&&(a<1e-4||a>=1e9)){var e=Math.floor(Math.log10(a));return (parseFloat((x/Math.pow(10,e)).toPrecision(8))+'').replace('.',',')+'·10^'+e}return (parseFloat(x.toPrecision(12))+'').replace('.',',')}
+function ri(a,b){return a+Math.floor(Math.random()*(b-a+1))}
+function ok(a,b,t){return isFinite(a)&&Math.abs(a-b)<=t}
+function msg(id,t,c){var m=$(id);m.textContent=t;m.className='msg'+(c?' '+c:'')}
+var ST={regla:[0,0],balanza:[0,0],cronometro:[0,0],termometro:[0,0],probeta:[0,0],conv:[0,0],tool:0};
+var NAMES={regla:'📏 Regla',balanza:'⚖️ Balanza',cronometro:'⏱️ Cronómetro',termometro:'🌡️ Termómetro',probeta:'🧪 Probeta'};
+var INFO={regla:'Mide hasta 15 cm · Cada rayita pequeña vale 1 mm (0,1 cm)',balanza:'Balanza digital · El número de la pantalla es la masa',cronometro:'Mide hasta 10 min · Marca décimas de segundo (0,1 s)',termometro:'Mide de 0 a 50 °C · Cada rayita pequeña vale 1 °C',probeta:'Mide hasta 100 mL · Cada rayita pequeña vale 2 mL'};
+
+/* ---------- generadores de instrumentos ---------- */
+var G={
+regla:function(){var L=ri(20,140),p='';for(var i=0;i<=150;i++){var x=20+i*2.4,l=i%10===0?20:i%5===0?14:8;p+='M'+x+' 44v'+l}
+ var t='';for(i=0;i<=15;i++)t+='<text x="'+(20+i*24)+'" y="82" font-size="11" text-anchor="middle" fill="currentColor">'+i+'</text>';
+ return{svg:'<svg viewBox="0 0 400 110"><rect x="20" y="12" width="'+L*2.4+'" height="26" rx="4" fill="#e8833a"/><rect x="10" y="44" width="380" height="50" rx="4" fill="var(--card)" stroke="currentColor" stroke-width="2"/><path d="'+p+'" stroke="currentColor" stroke-width="1"/>'+t+'<line x1="'+(20+L*2.4)+'" y1="12" x2="'+(20+L*2.4)+'" y2="94" stroke="#c44536" stroke-width="1" stroke-dasharray="3 3"/><text x="385" y="106" font-size="10" text-anchor="end" fill="currentColor">cm</text></svg>',
+ l1:'Lectura de la regla (cm)',a1:L/10,l2:'Longitud en metros (m)',a2:L/1000,t2:1e-6,h:'Lee los cm enteros y cuenta los mm que sobran (cada mm es 0,1 cm). Para pasar cm → m divide entre 100.'}},
+termometro:function(){var T=ri(0,50),p='',t='';for(var i=0;i<=50;i++){var x=20+i*7.2;p+='M'+x+' 58v'+(i%10===0?16:i%5===0?11:6)}
+ for(i=0;i<=50;i+=10)t+='<text x="'+(20+i*7.2)+'" y="92" font-size="12" text-anchor="middle" fill="currentColor">'+i+'</text>';
+ return{svg:'<svg viewBox="0 0 400 100"><rect x="14" y="26" width="372" height="26" rx="13" fill="var(--card)" stroke="currentColor" stroke-width="2"/><rect x="18" y="31" width="'+(T*7.2+2)+'" height="16" rx="8" fill="#c44536"/><path d="'+p+'" stroke="currentColor" stroke-width="1"/>'+t+'<text x="385" y="20" font-size="11" text-anchor="end" fill="currentColor">°C</text></svg>',
+ l1:'Temperatura leída (°C)',a1:T,l2:'Temperatura en kelvin (K)',a2:T+273.15,t2:.01,h:'La unidad SI de temperatura es el kelvin: K = °C + 273,15.'}},
+probeta:function(){var V=2*ri(5,48),p='',t='';for(var v=0;v<=100;v+=2){var y=210-v*2;p+='M170 '+y+'h-'+(v%10===0?20:10)}
+ for(v=0;v<=100;v+=10)t+='<text x="140" y="'+(214-v*2)+'" font-size="11" text-anchor="end" fill="currentColor">'+v+'</text>';
+ return{svg:'<svg viewBox="0 0 400 225" style="max-height:260px"><rect x="170" y="10" width="60" height="200" rx="4" fill="var(--card)" stroke="currentColor" stroke-width="2"/><rect x="172" y="'+(210-V*2)+'" width="56" height="'+V*2+'" fill="var(--sea)"/><path d="'+p+'" stroke="currentColor" stroke-width="1"/>'+t+'<text x="250" y="24" font-size="11" fill="currentColor">mL</text></svg>',
+ l1:'Volumen leído (mL)',a1:V,l2:'Volumen en litros (L)',a2:V/1000,t2:1e-6,h:'1 L = 1.000 mL, así que para pasar mL → L divide entre 1.000.'}},
+balanza:function(){var kg=Math.random()<.5,g=ri(1500,9500)/10,d,a1,l2,a2,h;
+ if(kg){a1=Math.round(g)/1000;d=fmt(a1)+' kg';l2='Masa en gramos (g)';a2=a1*1000;h='Para pasar kg → g multiplica por 1.000.'}
+ else{a1=g;d=fmt(g)+' g';l2='Masa en kilogramos (kg)';a2=g/1000;h='Para pasar g → kg divide entre 1.000. La unidad SI de masa es el kg.'}
+ return{svg:'<svg viewBox="0 0 400 150"><rect x="30" y="120" width="340" height="18" rx="6" fill="var(--mut)"/><rect x="60" y="106" width="130" height="14" rx="4" fill="var(--line)" stroke="currentColor"/><circle cx="125" cy="76" r="30" fill="#e8833a"/><rect x="220" y="40" width="130" height="60" rx="6" fill="#18322a"/><text x="285" y="78" font-size="22" text-anchor="middle" fill="#7dffb0" font-family="monospace" font-weight="700">'+d+'</text></svg>',
+ l1:'Número que marca la balanza',a1:a1,l2:l2,a2:a2,t2:Math.abs(a2)*1e-4+1e-9,h:h}},
+cronometro:function(){var t=ri(300,5990)/10,m=Math.floor(t/60),s=(t-m*60).toFixed(1),d=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+ return{svg:'<svg viewBox="0 0 400 140"><circle cx="200" cy="72" r="58" fill="var(--card)" stroke="currentColor" stroke-width="4"/><rect x="190" y="6" width="20" height="10" rx="3" fill="var(--mut)"/><rect x="140" y="52" width="120" height="40" rx="6" fill="#18322a"/><text x="200" y="82" font-size="26" text-anchor="middle" fill="#7dffb0" font-family="monospace" font-weight="700">'+d+'</text><text x="200" y="124" font-size="11" text-anchor="middle" fill="currentColor">min : s</text></svg>',
+ l1:'Minutos que marca',a1:m,l2:'Tiempo total en segundos (s)',a2:t,t2:.06,h:'1 min = 60 s. Multiplica los minutos por 60 y suma los segundos.'}}};
+var cur=null,curI='regla';
+function newM(){cur=G[curI]();$('isvg').innerHTML=cur.svg;$('isvg').style.color='var(--ink)';$('l1').textContent=cur.l1;$('l2').textContent=cur.l2;$('r1').value='';$('r2').value='';$('iinfo').textContent=INFO[curI];msg('imsg','Lee el instrumento y escribe tus respuestas.')}
+function stats(){$('stat').innerHTML=Object.keys(NAMES).map(function(k){return '<tr><td>'+NAMES[k]+'</td><td>'+ST[k][0]+'</td><td>'+ST[k][1]+'</td></tr>'}).join('')}
+$('isel').innerHTML=Object.keys(NAMES).map(function(k){return '<button class="btn" data-i="'+k+'">'+NAMES[k]+'</button>'}).join('');
+document.querySelectorAll('#isel .btn').forEach(function(b){b.onclick=function(){curI=b.dataset.i;document.querySelectorAll('#isel .btn').forEach(function(x){x.classList.toggle('on',x===b)});newM()}});
+$('nw').onclick=newM;
+$('sl').onclick=function(){msg('imsg','💡 '+cur.h)};
+$('ck').onclick=function(){if(!cur)return;var a=num($('r1').value),b=num($('r2').value);
+ if(!isFinite(a)||!isFinite(b)){msg('imsg','Rellena las dos casillas con números.','bad');return}
+ ST[curI][0]++;var o1=ok(a,cur.a1,curI==='regla'||curI==='termometro'||curI==='probeta'||curI==='cronometro'?.001:Math.abs(cur.a1)*1e-4+1e-9),o2=ok(b,cur.a2,cur.t2);
+ if(o1&&o2){ST[curI][1]++;msg('imsg','¡Correcto! Lectura '+fmt(cur.a1)+' y conversión '+fmt(cur.a2)+'. Pulsa «Nueva medida».','good')}
+ else if(!o1)msg('imsg','Revisa la lectura: mira dónde llega la marca y cuenta las divisiones.','bad');
+ else msg('imsg','La lectura está bien, pero falla el cambio de unidad. Pulsa «Pista».','bad');stats()};
+
+/* ---------- conversión ---------- */
+var U={len:[['km',1000],['hm',100],['dam',10],['m',1],['dm',.1],['cm',.01],['mm',.001]],mass:[['t',1000],['kg',1],['hg',.1],['dag',.01],['g',.001],['mg',1e-6]],time:[['h',3600],['min',60],['s',1],['ms',.001]],temp:[['°C',0],['K',0]]};
+var DEF={len:['km','m'],mass:['kg','g'],time:['h','s'],temp:['°C','K']};
+function fac(m,u){return U[m].filter(function(x){return x[0]===u})[0][1]}
+function conv(m,v,f,t){if(m==='temp')return f===t?v:f==='°C'?v+273.15:v-273.15;return v*fac(m,f)/fac(m,t)}
+function expl(m,v,f,t){var r=conv(m,v,f,t);if(f===t)return 'Son la misma unidad: '+fmt(v)+' '+f;
+ if(m==='temp')return f==='°C'?'K = °C + 273,15 → '+fmt(v)+' + 273,15 = '+fmt(r)+' K':'°C = K − 273,15 → '+fmt(v)+' − 273,15 = '+fmt(r)+' °C';
+ var k=fac(m,f)/fac(m,t);return '1 '+f+' = '+fmt(k)+' '+t+(k>1?' (unidad grande → pequeña: multiplicas)':' (unidad pequeña → grande: divides)')+'\n'+fmt(v)+' '+f+' × '+fmt(k)+' = '+fmt(r)+' '+t}
+function fill(){var m=$('cm').value,o=U[m].map(function(x){return '<option>'+x[0]+'</option>'}).join('');$('cf').innerHTML=o;$('ct').innerHTML=o;$('cf').value=DEF[m][0];$('ct').value=DEF[m][1]}
+$('cm').onchange=function(){fill();$('cr').textContent='Pulsa «Convertir».'};fill();
+$('cb').onclick=function(){var v=num($('cv').value);if(!isFinite(v)){msg('cr','Escribe un número.','bad');return}ST.tool++;var m=$('cm').value,r=$('cr');r.className='msg good';r.style.whiteSpace='pre-line';r.textContent=fmt(v)+' '+$('cf').value+' = '+fmt(conv(m,v,$('cf').value,$('ct').value))+' '+$('ct').value+'\n\n'+expl(m,v,$('cf').value,$('ct').value)};
+
+/* ---------- pedidos ---------- */
+var P=[['len','Un balón de fútbol tiene una circunferencia de entre 68 y 70 cm. Si mide 69 cm, ¿cuántos metros son?',69,'cm','m'],
+['len','Un campo de fútbol grande mide 105 m de largo. Exprésalo en kilómetros.',105,'m','km'],
+['len','Un campo de fútbol mide 68 m de ancho. Exprésalo en centímetros.',68,'m','cm'],
+['len','La maratón mide 42,195 km. ¿Cuántos metros son?',42.195,'km','m'],
+['len','El grosor de un cable es 8 mm. Pásalo a metros.',8,'mm','m'],
+['mass','Un balón de fútbol pesa entre 410 y 450 g. Si pesa 430 g, ¿cuántos kg son?',430,'g','kg'],
+['mass','Una bolsa de naranjas pesa 2,5 kg. Exprésalo en gramos.',2.5,'kg','g'],
+['mass','Un comprimido tiene 500 mg de principio activo. ¿Cuántos gramos son?',500,'mg','g'],
+['mass','Un camión carga 3 t. ¿Cuántos kilogramos son?',3,'t','kg'],
+['time','Un partido de fútbol dura 90 min. ¿Cuántos segundos son?',90,'min','s'],
+['time','El descanso dura 15 min. Pásalo a segundos.',15,'min','s'],
+['time','Un viaje dura 2 h. ¿Cuántos segundos son?',2,'h','s'],
+['time','Un reloj mide 7200 s. ¿Cuántas horas son?',7200,'s','h'],
+['temp','La temperatura corporal normal ronda los 36,5 °C. Pásala a kelvin.',36.5,'°C','K'],
+['temp','El agua hierve a 100 °C (a nivel del mar). ¿Cuántos kelvin son?',100,'°C','K'],
+['temp','Una habitación está a 293,15 K. ¿Cuántos grados Celsius son?',293.15,'K','°C']];
+var pc=null;
+function newP(){pc=P[ri(0,P.length-1)];$('pq').textContent=pc[1];$('pl').textContent='Respuesta en '+pc[4];$('pa').value='';msg('pm','')}
+$('pn').onclick=newP;
+$('ph').onclick=function(){if(pc){var m=$('pm');m.className='msg';m.style.whiteSpace='pre-line';m.textContent='💡 '+expl(pc[0],pc[2],pc[3],pc[4]).split('\n')[0]}};
+$('pc').onclick=function(){if(!pc){msg('pm','Pulsa «Nuevo pedido».','bad');return}var a=num($('pa').value);if(!isFinite(a)){msg('pm','Escribe un número.','bad');return}
+ ST.conv[0]++;var r=conv(pc[0],pc[2],pc[3],pc[4]);
+ if(ok(a,r,Math.abs(r)*1e-6+1e-9)){ST.conv[1]++;msg('pm','¡Correcto! '+fmt(pc[2])+' '+pc[3]+' = '+fmt(r)+' '+pc[4],'good')}else msg('pm','No es correcto. ¿Multiplicas o divides? Pulsa «Pista».','bad');
+ $('pok').textContent=ST.conv[1];$('pint').textContent=ST.conv[0]};
+
+/* ---------- navegación e informe ---------- */
+function tasks(){var c=Object.keys(NAMES).filter(function(k){return ST[k][1]>0}).length;
+ return [['Acertar al menos una medida con cada uno de los 5 instrumentos ('+c+'/5)',c===5],['Resolver correctamente 5 pedidos de cambio de unidades ('+ST.conv[1]+'/5)',ST.conv[1]>=5],['Usar el conversor con explicación al menos 3 veces ('+ST.tool+'/3)',ST.tool>=3]]}
+function tasksR(){$('tasks').innerHTML=tasks().map(function(t){return '<li class="'+(t[1]?'ok':'')+'">'+t[0]+'</li>'}).join('')}
+function show(t){if(t==='informe')tasksR();document.querySelectorAll('.sec').forEach(function(s){s.classList.toggle('on',s.id===t)});document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.t===t)});scrollTo(0,0)}
+document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){show(b.dataset.t)}});
+function build(){var tk=tasks(),n=tk.filter(function(t){return t[1]}).length,v=function(i){return $(i).value.trim()||'(sin completar)'};
+ var L=['INFORME DE LABORATORIO · MEDIDAS Y UNIDADES (2º ESO FyQ)','Alumno/a: '+$('nom').value.trim(),'Curso: '+($('cur').value.trim()||'(sin indicar)'),'Fecha: '+new Date().toLocaleString('es-ES'),'','TAREAS COMPLETADAS: '+n+' de '+tk.length].concat(tk.map(function(t){return (t[1]?'[x] ':'[ ] ')+t[0]}));
+ L.push('','MEDIDAS CON INSTRUMENTOS (aciertos/intentos)');Object.keys(NAMES).forEach(function(k){L.push(NAMES[k]+': '+ST[k][1]+'/'+ST[k][0])});
+ L.push('','CAMBIO DE UNIDADES','Pedidos correctos: '+ST.conv[1]+' de '+ST.conv[0]+' intentos','Usos del conversor: '+ST.tool,'','CONCLUSIONES','1. Un error mío fue: '+v('h1'),'2. Para elegir el instrumento hay que fijarse en: '+v('h2'));
+ return L.join('\n')}
+$('bRep').onclick=function(){if(!$('nom').value.trim()){msg('repmsg','Escribe primero tu nombre y apellidos.','bad');return}var t=build();$('rep').value=t;$('prt').textContent=t;tasksR();msg('repmsg','Informe listo. Cópialo en Classroom o imprímelo / guárdalo en PDF.','good')};
+$('bCopy').onclick=function(){if(!$('rep').value){msg('repmsg','Primero genera el informe.','bad');return}$('rep').select();var k=false;try{k=document.execCommand('copy')}catch(e){}
+ if(!k&&navigator.clipboard){navigator.clipboard.writeText($('rep').value).then(function(){msg('repmsg','Copiado. Pégalo en Classroom.','good')},function(){msg('repmsg','Selecciona el texto y copia con Ctrl+C.')});return}
+ msg('repmsg',k?'Copiado. Pégalo en Classroom.':'Selecciona el texto y copia con Ctrl+C.',k?'good':'')};
+$('bPrint').onclick=function(){if(!$('rep').value){msg('repmsg','Primero genera el informe.','bad');return}window.print()};
+document.querySelector('#isel .btn').click();stats();tasksR();
+})();
+</script>
+</body>
+</html>
